@@ -2,7 +2,7 @@
 
 ## Versión: 1.0.0
 
-Hola, bienvenido/a a mi proyecto, que es un eCommerce desarrollado con React y Vite como el bundler, y utiliza Tailwind CSS para el estilizado. Durante el transcurso de la cursada, se implementarán nuevos temas y se actualizará el sitio.
+Hola, bienvenido/a a mi proyecto, que es un Ecommerce desarrollado con React y Vite como el bundler, y utiliza Tailwind CSS para el estilizado. Durante el transcurso de la cursada, se implementarán nuevos temas y se actualizará el sitio.
 
 **Funcionalidades**
 - Implementación de componentes en React.
