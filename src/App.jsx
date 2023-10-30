@@ -8,7 +8,7 @@ function App() {
     <>
       <div>
       <NavBar />
-      <ItemListContainer saludo={'Bienvenidos!!!'} />
+      <ItemListContainer greeting={'Bienvenidos!!!'} />
       </div>
     </>
   )

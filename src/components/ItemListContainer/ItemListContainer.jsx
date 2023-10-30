@@ -1,16 +1,16 @@
 import PropTypes from 'prop-types';
 
-const ItemListContainer = ({ saludo }) => {
+const ItemListContainer = ({ greeting }) => {
 return (
     <div>
-        <h1 className="text-4xl text-black font-bold mt-10 text-center">{saludo}</h1>
+        <h1 className="text-4xl text-black font-bold mt-10 text-center">{greeting}</h1>
     </div>
 )
 }
 
 
 ItemListContainer.propTypes = {
-    saludo: PropTypes.string
+    greeting: PropTypes.string
   };
 
 export default ItemListContainer
