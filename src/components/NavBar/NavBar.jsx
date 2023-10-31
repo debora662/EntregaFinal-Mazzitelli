@@ -20,7 +20,7 @@ const NavBar = () => {
                                 </li>
                             </ul>
                         </details>
-                        <a className="ml-3 text-gray-100 normal-case text-xl" href="">Agatha-Ecommerce</a>
+                        <h3 className="ml-3 text-gray-100 normal-case text-xl">Agatha-Ecommerce</h3>
                     </div>
                     <div className="navbar-center hidden lg:flex">
                         <ul className="menu-horizontal">
