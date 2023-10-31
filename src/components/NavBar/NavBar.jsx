@@ -4,7 +4,7 @@ const NavBar = () => {
     return (
         <header>
             <nav>
-                <div className="navbar bg-neutral-800">                  
+                <div className="navbar bg-neutral-800">
                     <div className="navbar-start">
                         <details className="dropdown">
                             <summary tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -33,7 +33,6 @@ const NavBar = () => {
                         <CartWidget />
                     </div>
                 </div>
-
             </nav>
         </header>
     )
