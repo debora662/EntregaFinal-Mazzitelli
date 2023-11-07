@@ -8,7 +8,6 @@ return (
 )
 }
 
-
 ItemListContainer.propTypes = {
     greeting: PropTypes.string
   };
