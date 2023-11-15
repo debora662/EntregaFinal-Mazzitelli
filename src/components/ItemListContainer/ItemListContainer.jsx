@@ -1,26 +1,20 @@
 import PropTypes from 'prop-types';
-import { useEffect, useState } from 'react';
-import axios from 'axios';
 import ItemList from '../ItemList/ItemList';
+import useFetchData from '../../customHook/FetchData';
 
 const ItemListContainer = ({ greeting }) => {
-  const [products, setProducts] = useState([])  
-
-  useEffect(() => {
-    axios
-      .get("https://api.mockfly.dev/mocks/03682ae5-1697-4466-835f-3c6f06ba02b1/products")
-      .then(response => {
-        const limitedProducts = response.data.slice(0, 24);
-        setProducts(limitedProducts);        
-      })
-      .catch(error => window.alert(error.message));
-  }, []);
+  const apiUrl = "https://api.mockfly.dev/mocks/03682ae5-1697-4466-835f-3c6f06ba02b1/products";
+  const { data, error } = useFetchData(apiUrl);
 
   return (
-    <div>
-      <h1 className="text-4xl text-black font-bold mt-10 text-center">{greeting}</h1>
-      <ItemList products={products} />
-    </div>
+    <main>
+      <div>
+        <h1 className="text-4xl text-black font-bold mt-10 text-center">{greeting}</h1>
+        {error && <div>Error: {error}</div>}
+        {data.length === 0 && !error && <div>Cargando...</div>}
+        {data.length > 0} <ItemList products={data} />
+      </div>
+    </main>
   )
 }
 
@@ -28,4 +22,4 @@ ItemListContainer.propTypes = {
   greeting: PropTypes.string
 };
 
-export default ItemListContainer
+export default ItemListContainer;
