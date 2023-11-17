@@ -15,6 +15,7 @@ const App = () => {
           <Route path="/" element={<ItemListContainer greeting='Bienvenidos' />} />
           <Route path="/category/:categoryId" element={<ItemListContainer />} />
           <Route path="/detalle/:Id" element={<ItemDetailContainer />} />
+          <Route path="*" element={<h1>ERROR 404 PAGE NOT FOUND</h1>}/>
         </Routes>
         {/* <ItemCount initial={1} stock={10} onAdd={(quantity) => console.log('cantidad agregada', quantity)} /> */}
         <Footer />
