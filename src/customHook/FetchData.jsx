@@ -21,4 +21,7 @@ const useFetchData = (apiUrl) => {
     return { data, error };
 }
 
+
+
+
 export default useFetchData;

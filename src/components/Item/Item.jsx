@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom"
+
 const Item = ({ id, nombre, precio, image }) => {
     return (
         <article className="max-w-sm bg-slate-50 rounded overflow-hidden shadow-lg hover:shadow-gray-500 flex flex-col items-center lg:w-60">
@@ -13,7 +15,9 @@ const Item = ({ id, nombre, precio, image }) => {
                 </p>
             </section>
             <div>
-                <button className="bg-gray-500 hover:bg-black text-white font-bold py-2 px-4 rounded mb-4">Ver detalle</button>
+                <Link to={`detalle/${id}`}>
+                    <button className="bg-gray-500 hover:bg-black text-white font-bold py-2 px-4 rounded mb-4" >Ver detalle</button>
+                </Link>
             </div>
         </article>
     )
