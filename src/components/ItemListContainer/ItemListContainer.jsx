@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import ItemList from '../ItemList/ItemList';
-import getAllProducts from "../../controllers/getAllProducts";
-import getCategoryById from '../../controllers/getCategoryById';
+import {getAllProducts, getCategoryById} from "../../async-mock";
+/* import {getCategoryById} from '../../async-mock'; */
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 
@@ -22,7 +22,7 @@ const ItemListContainer = ({ greeting }) => {
 
   return (
     <main>
-      <div>
+      <div>       
         <h1 className="text-4xl text-black font-bold mt-10 text-center">{greeting}</h1>
         <ItemList products={products} />
       </div>

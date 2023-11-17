@@ -1,5 +1,5 @@
 import CartWidget from "../CartWidget/CartWidget"
-import { Link } from "react-router-dom"
+import { NavLink, Link } from "react-router-dom"
 
 const NavBar = () => {
   return (
@@ -22,14 +22,20 @@ const NavBar = () => {
               </ul>
             </details>
             <Link to="/">
-            <h3 className="ml-3 text-gray-100 normal-case text-xl">Agatha-Ecommerce</h3>
+              <h3 className="ml-3 text-gray-100 normal-case text-xl">Agatha-Ecommerce</h3>
             </Link>
           </div>
           <div className="navbar-center hidden lg:flex">
             <ul className="menu-horizontal">
-              <li className="text-white mx-4 hover:scale-110"><Link to="/category/auriculares">Auriculares</Link></li>
-              <li className="text-white mx-4 hover:scale-110"><Link to="/category/mouse">Mouse</Link></li>
-              <li className="text-white mx-4 hover:scale-110"><Link to="/category/teclado">Teclado</Link></li>
+              <li className="text-white mx-4 hover:scale-110">
+                <NavLink to="/category/auriculares" className={({ isActive }) => isActive ? 'text-pink-500 font-semibold' : 'text-white'}>Auriculares</NavLink>
+              </li>
+              <li className="text-white mx-4 hover:scale-110">
+                <NavLink to="/category/mouse" className={({ isActive }) => isActive ? 'text-pink-500 font-semibold' : 'text-white'}>Mouse</NavLink>
+              </li>
+              <li className="text-white mx-4 hover:scale-110">
+                <NavLink to="/category/teclado" className={({ isActive }) => isActive ? 'text-pink-500 font-semibold' : 'text-white'}>Teclado</NavLink>
+              </li>
             </ul>
           </div>
           <div className="navbar-end">
