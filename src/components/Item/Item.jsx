@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 const Item = ({ id, nombre, precio, image}) => {
     return (
-        <article className="max-w-sm bg-slate-50 rounded overflow-hidden shadow-lg hover:shadow-gray-500 flex flex-col items-center lg:w-60">
+        <article className="w-full sm:max-w-md md:max-w-lg lg:max-w-xl xl:max-w-2xl bg-slate-50 rounded overflow-hidden shadow-lg hover:shadow-gray-500 flex flex-col items-center mx-auto">
             <h2 className="font-bold text-slate-700 text-base my-2">
                 {nombre}
             </h2>
