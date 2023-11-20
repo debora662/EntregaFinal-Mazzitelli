@@ -18,7 +18,7 @@ export const getAllProducts = async () => {
 
 export const getProductById = async (itemId) => {
     const data = await fetchData();
-    const filteredProduct = data.find(product => product.id === parseInt(itemId))
+    const filteredProduct = data.find(product => product.id === parseInt(itemId))    
     return filteredProduct || null;
 };
 

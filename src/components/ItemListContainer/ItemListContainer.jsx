@@ -1,13 +1,14 @@
 import PropTypes from 'prop-types';
 import ItemList from '../ItemList/ItemList';
-import {getAllProducts, getCategoryById} from "../../async-mock";
-/* import {getCategoryById} from '../../async-mock'; */
+import { getAllProducts, getCategoryById } from "../../async-mock";
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
+import Loading from '../Loading/Loading';
 
 const ItemListContainer = ({ greeting }) => {
-  const [products, setProducts] = useState([])
-  const { categoryId } = useParams()
+  const [products, setProducts] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
+  const { categoryId } = useParams();
 
   useEffect(() => {
     const asynFunc = categoryId ? getCategoryById : getAllProducts;
@@ -18,13 +19,16 @@ const ItemListContainer = ({ greeting }) => {
       .catch(error => {
         console.log("Hubo un error", error);
       })
+      .finally(() => {
+        setIsLoading(false);
+      });
   }, [categoryId])
 
   return (
     <main>
-      <div>       
+      <div>
         <h1 className="text-4xl text-black font-bold mt-10 text-center">{greeting}</h1>
-        <ItemList products={products} />
+        {isLoading ? <Loading /> : <ItemList products={products} />}
       </div>
     </main>
   )
