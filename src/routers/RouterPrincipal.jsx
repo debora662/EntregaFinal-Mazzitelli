@@ -18,4 +18,4 @@ function RouterPrincipal() {
     )
 }
 
-export default RouterPrincipal
+export default RouterPrincipal;

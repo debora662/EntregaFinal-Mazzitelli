@@ -1,4 +1,4 @@
-import error404 from "../../assets/error404.webp"
+import error404 from "../../assets/error404.webp";
 
 const Error404 = () => {
     return (
@@ -8,4 +8,4 @@ const Error404 = () => {
     )
 }
 
-export default Error404
+export default Error404;

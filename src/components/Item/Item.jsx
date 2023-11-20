@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom"
+import { Link } from "react-router-dom";
 
 const Item = ({ id, nombre, precio, image}) => {
     return (
@@ -21,4 +21,4 @@ const Item = ({ id, nombre, precio, image}) => {
     )
 }
 
-export default Item
+export default Item;

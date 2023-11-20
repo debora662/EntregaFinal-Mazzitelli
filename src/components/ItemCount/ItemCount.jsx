@@ -31,4 +31,4 @@ ItemCount.propTypes = {
     onAdd: PropTypes.func
   };
 
-export default ItemCount
+export default ItemCount;
