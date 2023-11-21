@@ -14,9 +14,9 @@ const NavBar = () => {
               <ul className="p-2 shadow menu dropdown-content bg-base-100 mt-2 rounded-b-lg w-52">
                 <li>
                   <ul className="p-2">
-                    <li className="text-white mx-4 hover:scale-110"><a href="">Auriculares</a></li>
-                    <li className="text-white mx-4 hover:scale-110"><a href="">Mouse</a></li>
-                    <li className="text-white mx-4 hover:scale-110"><a href="">Teclado</a></li>
+                    <li className="text-white mx-4 hover:scale-110"><NavLink to ="/category/auriculares">Auriculares</NavLink></li>
+                    <li className="text-white mx-4 hover:scale-110"><NavLink to ="/category/mouse">Mouse</NavLink></li>
+                    <li className="text-white mx-4 hover:scale-110"><NavLink to ="/category/teclado">Teclado</NavLink></li>
                   </ul>
                 </li>
               </ul>
