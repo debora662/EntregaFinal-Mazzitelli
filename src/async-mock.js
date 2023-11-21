@@ -4,8 +4,9 @@ const apiUrl = "https://653276fad80bd20280f59481.mockapi.io/api/productos";
 
 const fetchData = async () => {
     try {
-        const response = await axios.get(apiUrl);       
-        return response.data;
+        const response = await axios.get(apiUrl);   
+        const limitedProducts = response.data.slice(0, 24)    
+        return limitedProducts;
     } catch (error) {
         alert("Error al obtener los productos:", error);
         throw error;
