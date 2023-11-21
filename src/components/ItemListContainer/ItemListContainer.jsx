@@ -25,12 +25,10 @@ const ItemListContainer = ({ greeting }) => {
   }, [categoryId])
 
   return (
-    <main>
-      <div>
-        <h1 className="text-4xl text-black font-bold mt-10 text-center">{greeting}</h1>
-        {isLoading ? <Loading /> : <ItemList products={products} />}
-      </div>
-    </main>
+    <div>
+      <h1 className="text-4xl text-black font-bold mt-10 text-center">{greeting}</h1>
+      {isLoading ? <Loading /> : <ItemList products={products} />}
+    </div>
   )
 }
 
