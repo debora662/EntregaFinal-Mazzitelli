@@ -4,9 +4,11 @@ import ItemListContainer from "../components/ItemListContainer/ItemListContainer
 import ItemDetailContainer from "../components/ItemDetailContainer/ItemDetailContainer";
 import Footer from "../components/Footer/Footer"
 import Error404 from "../components/Error/Error404";
+import CartProvider from "../context/CartContext";
 
 function RouterPrincipal() {
     return (
+        <CartProvider >
         <Router>
             <NavBar />
             <Routes>
@@ -17,6 +19,7 @@ function RouterPrincipal() {
             </Routes>
             <Footer />
         </Router>
+        </CartProvider >
     )
 }
 
