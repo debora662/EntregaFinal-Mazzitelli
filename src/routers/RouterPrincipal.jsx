@@ -8,8 +8,8 @@ import CartProvider from "../context/CartContext";
 
 function RouterPrincipal() {
     return (
-        <CartProvider >
-            <Router>
+        <Router>
+            <CartProvider >
                 <NavBar/>
                 <Routes>
                     <Route path="/" element={<ItemListContainer greeting = 'Bienvenidos' />}/>
@@ -18,8 +18,8 @@ function RouterPrincipal() {
                     <Route path="*" element={<Error404 />}/>
                 </Routes>
                 <Footer/>
-            </Router>
-        </CartProvider >
+            </CartProvider >
+        </Router>
     )
 }
 
