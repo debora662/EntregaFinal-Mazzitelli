@@ -5,6 +5,7 @@ import ItemDetailContainer from "../components/ItemDetailContainer/ItemDetailCon
 import Footer from "../components/Footer/Footer"
 import Error404 from "../components/Error/Error404";
 import CartProvider from "../context/CartContext";
+import Cart from "../components/Cart/Cart";
 
 function RouterPrincipal() {
     return (
@@ -15,6 +16,7 @@ function RouterPrincipal() {
                     <Route path="/" element={<ItemListContainer greeting = 'Bienvenidos' />}/>
                     <Route path="/category/:categoryId" element={<ItemListContainer />}/>
                     <Route path="/item/:itemId" element={<ItemDetailContainer />}/>
+                    <Route path="/cart" element={<Cart />}/>
                     <Route path="*" element={<Error404 />}/>
                 </Routes>
                 <Footer/>
