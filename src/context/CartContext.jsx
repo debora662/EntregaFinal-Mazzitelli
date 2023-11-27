@@ -1,14 +1,13 @@
-import { createContext } from "react";
+import {createContext} from "react";
 
 export const CartContext = createContext();
 
-const CartProvider = ({ children }) => {
-
+const CartProvider = ({children}) => {
     return (
         <CartContext.Provider value={{}}>
             {children}
         </CartContext.Provider>
     )
-} 
+}
 
 export default CartProvider;
