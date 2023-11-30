@@ -5,7 +5,7 @@ import CartItem from "../CartItem/CartItem";
 
 const Cart = () => {
     const {cart, clearCart, totalQuantity, total} = useContext(CartContext)
-
+   
     if (totalQuantity === 0) {
         return (
             <div>
@@ -15,7 +15,7 @@ const Cart = () => {
         )
     }
     return (
-        <div>
+        <div className="my-20"> 
             {cart.map((p) => <CartItem key={p.id} {...p}/>)}
             <h3>Total: ${total}</h3>
             <button onClick={() => clearCart()} className="Button">Limpiar Carrito</button>

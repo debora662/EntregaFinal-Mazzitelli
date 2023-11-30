@@ -13,6 +13,7 @@ const ItemDetail = ({nombre, id, precio, stock, image, desc}) => {
 
         const item = {
             id,
+            image,
             nombre,
             precio
         }

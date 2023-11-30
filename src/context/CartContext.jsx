@@ -3,9 +3,7 @@ import {createContext, useState} from "react";
 export const CartContext = createContext({cart: []});
 
 const CartProvider = ({children}) => {
-    const [cart, setCart] = useState([]);
-
-    console.log(cart)
+    const [cart, setCart] = useState([]);    
 
     const addItem = (item, quantity) => {
         if (!isInCart(item.id)) {
