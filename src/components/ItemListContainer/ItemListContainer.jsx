@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
 import ItemList from '../ItemList/ItemList';
-import {getAllProducts, getCategoryById} from "../../async-mock";
+import {getDocs, collection, query, where} from "firebase/firestore";
+import {db} from "../../firebase/client";
 import {useState, useEffect} from 'react';
 import {useParams} from 'react-router-dom';
 import Loading from '../Loading/Loading';
@@ -11,20 +12,30 @@ const ItemListContainer = ({greeting}) => {
     const {categoryId} = useParams();
 
     useEffect(() => {
-        const asynFunc = categoryId
-            ? getCategoryById
-            : getAllProducts;
-        asynFunc(categoryId)
+        const collectionRef = categoryId
+            ? query(collection(db, "productos"), where("categoria", "==", categoryId))
+            : collection(db, "productos")
+
+        getDocs(collectionRef)
             .then(response => {
-                setProducts(response);
+                const productosAdapted = response
+                    .docs
+                    .map(doc => {
+                        const data = doc.data()
+                        return {
+                            id: doc.id,
+                            ...data
+                        }
+                    })
+                setProducts(productosAdapted);
             })
             .catch(error => {
-                console.log("Hubo un error", error);
+                console.error("Error fetching product data:", error);
             })
             . finally(() => {
                 setIsLoading(false);
-            });
-    }, [categoryId])
+            })
+    }, [categoryId]);
 
     return (
         <div>

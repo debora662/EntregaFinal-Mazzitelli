@@ -1,5 +1,6 @@
 import {useState, useEffect} from "react";
-import {getProductById} from "../../async-mock";
+import {getDoc, doc} from "firebase/firestore";
+import {db} from "../../firebase/client";
 import {useParams} from "react-router-dom";
 import ItemDetail from "../ItemDetail/ItemDetail";
 import Loading from "../Loading/Loading";
@@ -11,12 +12,20 @@ const ItemDetailContainer = () => {
 
     useEffect(() => {
         window.scrollTo(0, 0);
-        getProductById(itemId)
+
+        const docRef = doc(db, "productos", itemId);
+
+        getDoc(docRef)
             .then(response => {
-                setProduct(response);
+                const data = response.data()
+                const productAdapted = {
+                    id: response.id,
+                    ...data
+                }
+                setProduct(productAdapted);
             })
             .catch(error => {
-                console.log("Hubo un error", error);
+                console.error("Error fetching product data:", error);
             })
             . finally(() => {
                 setIsLoading(false);
