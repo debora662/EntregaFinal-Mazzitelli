@@ -1,3 +1,5 @@
+import PropTypes from 'prop-types';
+
 const CartItem = ({image, nombre, precio, quantity}) => {
 
     return (
@@ -6,7 +8,7 @@ const CartItem = ({image, nombre, precio, quantity}) => {
             <div className="col-span-1">
                 <img src={image} className="rounded-md w-28 mx-4"/>
             </div>
-            <div className="col-span-1">                
+            <div className="col-span-1">
                 <p className="text-lg text-slate-950 mx-15">{nombre}</p>
             </div>
             <div className="col-span-1">
@@ -20,3 +22,10 @@ const CartItem = ({image, nombre, precio, quantity}) => {
 };
 
 export default CartItem;
+
+CartItem.propTypes = {
+    image: PropTypes.string.isRequired,
+    nombre: PropTypes.string.isRequired,
+    precio: PropTypes.number.isRequired,
+    quantity: PropTypes.number.isRequired
+};
