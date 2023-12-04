@@ -1,4 +1,5 @@
 import ItemCount from "../ItemCount/ItemCount";
+import PropTypes from 'prop-types';
 import {useContext, useState} from "react";
 import {Link} from "react-router-dom";
 import {CartContext} from "../../context/CartContext";
@@ -55,3 +56,12 @@ const ItemDetail = ({nombre, id, precio, stock, image, desc}) => {
 }
 
 export default ItemDetail;
+
+ItemDetail.propTypes = {
+    nombre: PropTypes.string,
+    id: PropTypes.string,
+    precio: PropTypes.number,
+    stock: PropTypes.number,
+    image: PropTypes.string,
+    desc: PropTypes.string
+  };
