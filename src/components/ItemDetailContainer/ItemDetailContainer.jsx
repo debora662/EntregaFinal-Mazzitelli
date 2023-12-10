@@ -8,6 +8,7 @@ import Loading from "../Loading/Loading";
 const ItemDetailContainer = () => {
     const [product, setProduct] = useState(null);
     const [isLoading, setIsLoading] = useState(true);
+    const [error, setError] = useState(null);
     const {itemId} = useParams();
 
     useEffect(() => {
@@ -17,15 +18,20 @@ const ItemDetailContainer = () => {
 
         getDoc(docRef)
             .then(response => {
-                const data = response.data()
-                const productAdapted = {
-                    id: response.id,
-                    ...data
+                if (response.exists()) {
+                    const data = response.data()
+                    const productAdapted = {
+                        id: response.id,
+                        ...data
+                    }
+                    setProduct(productAdapted);
+                } else {
+                    setError("Producto no encontrado");
                 }
-                setProduct(productAdapted);
             })
             .catch(error => {
                 console.error("Error fetching product data:", error);
+                setError("Error al obtener los datos del producto")
             })
             . finally(() => {
                 setIsLoading(false);
@@ -34,11 +40,9 @@ const ItemDetailContainer = () => {
 
     return (
         <div>
-            {
-                isLoading
-                    ? <Loading/>
-                    : <ItemDetail {...product}/>
-            }
+            {isLoading && <Loading/>}
+            {error && <p className="border-b-2 p-4 bg-slate-200 mx-36 h-52 rounded-md shadow-md my-40 flex justify-center items-center text-slate-700">{error}</p>}
+            {product && <ItemDetail {...product}/>}
         </div>
     )
 }

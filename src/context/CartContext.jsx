@@ -1,16 +1,18 @@
 import {createContext, useState} from "react";
+import PropTypes from "prop-types";
 
 export const CartContext = createContext({cart: []});
 
 const CartProvider = ({children}) => {
-    const [cart, setCart] = useState([]);    
+    const [cart, setCart] = useState([]);
 
     const addItem = (item, quantity) => {
         if (!isInCart(item.id)) {
             setCart((prev) => [
                 ...prev, {
                     ...item,
-                    quantity
+                    quantity,
+                    subtotal: item.precio * quantity
                 }
             ]);
         } else {
@@ -19,8 +21,18 @@ const CartProvider = ({children}) => {
     }
 
     const removeItem = (itemId) => {
-        const cartUpdated = cart.filter((prod) => prod.id !== itemId)
-        setCart(cartUpdated);
+        const itemIndex = cart.findIndex((prod) => prod.id === itemId);
+
+        if (itemIndex !== -1) {
+            const cartUpdated = [...cart];
+            if (cartUpdated[itemIndex].quantity > 1) {
+                cartUpdated[itemIndex].quantity -= 1;
+                cartUpdated[itemIndex].subtotal -= cartUpdated[itemIndex].precio;
+            } else {
+                cartUpdated.splice(itemIndex, 1);
+            }
+            setCart(cartUpdated);
+        }
     }
 
     const clearCart = () => {
@@ -53,5 +65,9 @@ const CartProvider = ({children}) => {
         </CartContext.Provider>
     );
 };
+
+CartProvider.propTypes = {
+    children: PropTypes.node,
+  };
 
 export default CartProvider;

@@ -1,25 +1,32 @@
 import {useContext} from "react";
 import {CartContext} from "../../context/CartContext";
-import { Link } from "react-router-dom";
+import {Link} from "react-router-dom";
 import CartItem from "../CartItem/CartItem";
 
 const Cart = () => {
     const {cart, clearCart, totalQuantity, total} = useContext(CartContext)
-   
+
     if (totalQuantity === 0) {
         return (
-            <div>
-                <h1>No hay productos en el carrito</h1>
-                <Link to="/" className="Option">Productos</Link>
+            <div
+                className="border-b-2 p-4 bg-slate-200 mx-36 h-52 rounded-md shadow-md my-40 flex justify-center items-center">
+                <h1 className="text-slate-500">No hay productos en el carrito</h1>
+                <div>
+                    <Link to="/" className="text-blue-500 underline ml-2">Ir a Productos</Link>
+                </div>
             </div>
         )
     }
     return (
-        <div className="my-20"> 
-            {cart.map((p) => <CartItem key={p.id} {...p}/>)}
-            <h3>Total: ${total}</h3>
-            <button onClick={() => clearCart()} className="Button">Limpiar Carrito</button>
-            <Link to="/checkout" className="Option">Checkout</Link>
+        <div className="my-20">
+            {cart.map((p) => <CartItem key={p.id} {...p} subtotal={p.subtotal}/>)}
+            <div className="flex justify-end mt-3 mr-36">
+                <h3 className="text-black font-bold text-2xl">Total: ${total}</h3>
+            </div>
+            <div className="flex flex-row justify-start ml-36 mt-16">
+                <button onClick={() => clearCart()} className="bg-blue-600 rounded p-1.5 hover:bg-blue-800 text-white mr-10">Limpiar Carrito</button>
+                <Link to="/checkout" className="bg-blue-600 rounded p-1.5 hover:bg-blue-800 text-white">Checkout</Link>
+            </div>
         </div>
     )
 }

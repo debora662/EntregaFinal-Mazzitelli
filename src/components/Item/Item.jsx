@@ -2,6 +2,7 @@ import {Link} from "react-router-dom";
 import PropTypes from 'prop-types';
 
 const Item = ({id, nombre, precio, image}) => {
+   
     return (
         <article
             className="w-full sm:max-w-md md:max-w-lg lg:max-w-xl xl:max-w-2xl bg-slate-50 rounded overflow-hidden shadow-lg hover:shadow-gray-500 flex flex-col items-center mx-auto">
@@ -29,11 +30,11 @@ const Item = ({id, nombre, precio, image}) => {
     )
 }
 
-export default Item;
-
 Item.propTypes = {
     id: PropTypes.string,
     nombre: PropTypes.string,
     precio: PropTypes.number,
     image: PropTypes.string
-  };
+};
+
+export default Item;

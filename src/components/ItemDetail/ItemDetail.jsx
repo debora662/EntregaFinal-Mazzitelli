@@ -4,7 +4,7 @@ import {useContext, useState} from "react";
 import {Link} from "react-router-dom";
 import {CartContext} from "../../context/CartContext";
 
-const ItemDetail = ({nombre, id, precio, stock, image, desc}) => {
+const ItemDetail = ({nombre, id, precio, stock, image, descripcion}) => {
     const [quantityAdded, setQuantityAdded] = useState(0)
 
     const {addItem} = useContext(CartContext)
@@ -24,7 +24,7 @@ const ItemDetail = ({nombre, id, precio, stock, image, desc}) => {
 
     return (
         <div
-            className="max-w-full md:max-w-4xl mx-auto bg-slate-50 rounded-xl overflow-hidden shadow-md my-20">
+            className="max-w-full md:max-w-4xl mx-auto bg-slate-50 rounded-xl overflow-hidden shadow-md mt-20 mb-40">
             <header className="md:flex my-10">
                 <picture className="md:flex-shrink-0">
                     <img
@@ -37,14 +37,14 @@ const ItemDetail = ({nombre, id, precio, stock, image, desc}) => {
                     <p className="mt-2 text-black text-lg font-semibold">${precio}</p>
                     <p className="mt-2 text-black font-semibold">
                         Stock Disponible: {stock}</p>
-                    <p className="mt-2 text-gray-600">{desc}</p>
+                    <p className="mt-2 text-gray-600">{descripcion}</p>
                     <footer className="flex justify-center mt-8 min-h">
                         {
                             quantityAdded > 0
                                 ? (
                                     <Link
                                         to="/cart"
-                                        className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Terminar Compra</Link>
+                                        className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-16">Terminar Compra</Link>
                                 )
                                 : (<ItemCount initial={1} stock={stock} onAdd={handleOnAdd}/>)
                         }
@@ -55,13 +55,13 @@ const ItemDetail = ({nombre, id, precio, stock, image, desc}) => {
     )
 }
 
-export default ItemDetail;
-
 ItemDetail.propTypes = {
     nombre: PropTypes.string,
     id: PropTypes.string,
     precio: PropTypes.number,
     stock: PropTypes.number,
     image: PropTypes.string,
-    desc: PropTypes.string
-  };
+    descripcion: PropTypes.string
+};
+
+export default ItemDetail;
