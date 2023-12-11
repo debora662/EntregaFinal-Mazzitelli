@@ -1,57 +1,65 @@
-/* import {useContext, useState} from "react";
-import { CartContext } from "../../context/CartContext";
-import { Timestamp, addDoc, documentId } from "firebase/firestore";
-import { db } from "../../firebase/client";
-import { collection, writeBatch, query, where, getDocs } from "firebase/firestore";
-import Loading from "../Loading/Loading";
+import {useContext, useState} from "react";
+import {CartContext} from "../../context/CartContext";
+import {Timestamp, getDocs, writeBatch, collection, addDoc, query, where, documentId} from "firebase/firestore";
+import {db} from "../../firebase/client";
+import CheckoutForm from "../CheckoutForm/CheckoutForm";
 
 const Checkout = () => {
-    const [orderId, setOrderId] = useState(" ");
-    const [isLoading, setIsLoading] = useState(false); 
+    const [loading, setLoading] = useState(false);
+    const [orderId, setOrderId] = useState("");
 
     const {cart, total, clearCart} = useContext(CartContext)
 
-    const createOrder = async ({ name, phone, email}) => {
-        try {
-            setIsLoading(true);
+    const createOrder = async ({name, phone, email}) => {
+        setLoading(true)
 
+        try {
             const objOrder = {
                 buyer: {
-                    name, phone, email
+                    name,
+                    phone,
+                    email
                 },
                 items: cart,
                 total: total,
                 date: Timestamp.fromDate(new Date())
-            }
+            };
 
-            const batch = writeBatch(db)
+            const batch = writeBatch(db);
 
             const outOfStock = []
 
-            const ids = cart.map(prod => prod.id)
+            const ids = cart.map(prod => prod.id);
 
-            const productsRef = collection(db, "productos")
+            const productsRef = collection(db, "productos");
 
-            const productsAddedFromFirestore = await getDocs(query(productsRef, where(documentId(), "in", ids)))
-            
-            const { docs } = productsAddedFromFirestore
+            const productsAddedFromFirestore = await getDocs(
+                query(productsRef, where(documentId(), 'in', ids))
+            )
+
+            const {docs} = productsAddedFromFirestore;
 
             docs.forEach(doc => {
-
                 const dataDoc = doc.data()
                 const stockDb = dataDoc.stock
 
                 const productAddedToCart = cart.find(prod => prod.id === doc.id)
-                const prodQuantity = productAddedToCart?.quantity
+                const prodQuantity = productAddedToCart
+                    ?.quantity
 
-                if(stockDb >= prodQuantity) {
-                    batch.update(doc.ref, { stock: stockDb - prodQuantity })
-                }else {
-                    outOfStock.push({ id: doc.id, ...dataDoc})
+                if (stockDb >= prodQuantity) {
+                    batch.update(doc.ref, {
+                        stock: stockDb - prodQuantity
+                    })
+                } else {
+                    outOfStock.push({
+                        id: doc.id,
+                        ...dataDoc
+                    })
                 }
             })
 
-            if(outOfStock.length === 0) {
+            if (outOfStock.length === 0) {
                 await batch.commit()
 
                 const orderRef = collection(db, "orders")
@@ -60,28 +68,49 @@ const Checkout = () => {
 
                 setOrderId(orderAdded.id)
                 clearCart()
-            }else{
-                console.error("no hay productos")
+
+            } else {
+                console.error("Hay productos que no tienen Stock")
             }
         } catch (error) {
-            console.error("no hay productos")
-        }finally{
-            setIsLoading(false)
+            console.error("Error al crear un pedido")
+        } finally {
+            setLoading(false);
         }
     }
 
-    if(orderId) {
-        return <h1>El id de su orden es: {orderId}</h1>
-    }
+    return (
+        <div className="flex flex-col items-center mt-40 h-screen">
+            {
+                loading && (
+                    <h2 className="text-2xl text-black font-semibold animate-pulse">
+                        Generando Orden....
+                    </h2>
+                )
+            }
 
-
-    return (  
-        <div>
-            {isLoading && <Loading />}
-            <h1>Checkout</h1>
-            <div>{createOrder}</div>
-        </div>      
-    )
+            {
+                orderId && (
+                    <div>
+                        <h2 className="text-2xl text-black font-semibold">
+                            Orden Generada: {orderId}
+                        </h2>
+                        <p className="mt-10 text-center text-slate-900 text-lg text-semibold">Gracias por elegirnos 😃!!!</p>
+                    </div>
+                )
+            }
+            {
+                !loading && !orderId && (
+                    <div>
+                        <h1 className="text-center mt-10 text-2xl text-black font-semibold">
+                            Complete sus Datos
+                        </h1>
+                        <CheckoutForm onConfirm={createOrder}/>
+                    </div>
+                )
+            }
+        </div>
+    );
 }
 
-export default Checkout; */
+export default Checkout;
