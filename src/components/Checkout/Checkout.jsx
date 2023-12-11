@@ -80,10 +80,10 @@ const Checkout = () => {
     }
 
     return (
-        <div className="flex flex-col items-center mt-40 h-screen">
+        <div className="flex flex-col items-center sm:mt-10 lg:mt-30 h-screen">
             {
                 loading && (
-                    <h2 className="text-2xl text-black font-semibold animate-pulse">
+                    <h2 className="text-2xl text-slate-500 font-semibold animate-pulse">
                         Generando Orden....
                     </h2>
                 )
@@ -91,7 +91,7 @@ const Checkout = () => {
 
             {
                 orderId && (
-                    <div>
+                    <div className="flex flex-col items-center justify-center mt-52">
                         <h2 className="text-2xl text-black font-semibold">
                             Orden Generada: {orderId}
                         </h2>

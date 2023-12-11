@@ -28,7 +28,7 @@ const ItemDetail = ({nombre, id, precio, stock, image, descripcion}) => {
             <header className="md:flex my-10">
                 <picture className="md:flex-shrink-0">
                     <img
-                        className="h-64 w-full object-contain md:w-50 mx-4"
+                        className="sm:h-52 md:h-60 w-full object-contain md:w-50 mx-4"
                         src={image}
                         alt={nombre}/>
                 </picture>

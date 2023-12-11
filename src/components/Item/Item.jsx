@@ -12,7 +12,7 @@ const Item = ({id, nombre, precio, image}) => {
                 </h2>
             </header>
             <picture>
-                <img src={image} className="w-40" alt={nombre}/>
+                <img src={image} loading="lazy" className="w-40" alt={nombre}/>
             </picture>
             <section>
                 <p className="font-bold text-slate-700 text-base my-4">

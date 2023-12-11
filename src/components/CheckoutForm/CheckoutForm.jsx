@@ -18,7 +18,7 @@ const CheckoutForm = ({onConfirm}) => {
     }
 
     return (
-        <form onSubmit={handleConfirm} className="max-w-md mx-auto mt-10 p-4 border rounded-md flex flex-col items-center mb-32">
+        <form onSubmit={handleConfirm} className="max-w-md mx-auto mt-10 p-4 border rounded-md flex flex-col items-center mb-32 md:w-80 lg:w-[32rem]">
             <div className="mb-4 w-full">
             <label className="block text-gray-700 text-sm font-bold mb-2">Name:
                 <input type="text" value={name} onChange={(e) => setName(e.target.value)} className="border-2 rounded-md w-full py-2 px-3 focus:outline-none bg-gray-200 focus:border-blue-500"/>
