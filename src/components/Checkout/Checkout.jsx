@@ -91,7 +91,7 @@ const Checkout = () => {
 
             {
                 orderId && (
-                    <div className="flex flex-col items-center justify-center mt-52">
+                    <div className="flex flex-col items-center justify-center mt-48">
                         <h2 className="text-2xl text-black font-semibold">
                             Orden Generada: {orderId}
                         </h2>
@@ -101,11 +101,11 @@ const Checkout = () => {
             }
             {
                 !loading && !orderId && (
-                    <div>
+                    <div className="flex flex-col items-center justify-center mt-">
                         <h1 className="text-center mt-10 text-2xl text-black font-semibold">
                             Complete sus Datos
-                        </h1>
-                        <CheckoutForm onConfirm={createOrder}/>
+                        </h1>                        
+                        <CheckoutForm onConfirm={createOrder}/>                        
                     </div>
                 )
             }
