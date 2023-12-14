@@ -1,8 +1,14 @@
 import {Link} from "react-router-dom";
 import PropTypes from 'prop-types';
+import { useState } from "react";
 
 const Item = ({id, nombre, precio, image}) => {
-   
+   const [imageLoaded, setImageLoaded] = useState(false);
+
+   const handleImageLoad = () => {
+    setImageLoaded(true);
+   }
+
     return (
         <article
             className="w-full sm:max-w-md md:max-w-lg lg:max-w-xl xl:max-w-2xl bg-slate-50 rounded overflow-hidden shadow-lg hover:shadow-gray-500 flex flex-col items-center mx-auto">
@@ -12,7 +18,15 @@ const Item = ({id, nombre, precio, image}) => {
                 </h2>
             </header>
             <picture>
-                <img src={image} loading="lazy" className="w-40" alt={nombre}/>
+                {!imageLoaded && (
+                    <div className="skeleton w-40 h-[11.5rem]"></div>
+                )}
+                <img
+                    src={image}
+                    className={`w-40 object-cover ${imageLoaded ? 'opacity-100' : 'opacity-0'}`}
+                    alt={nombre}
+                    onLoad={handleImageLoad}
+                />
             </picture>
             <section>
                 <p className="font-bold text-slate-700 text-base my-4">
