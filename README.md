@@ -2,7 +2,7 @@
 
 ## Versión: 3.0.0
 
-Hola, bienvenido/a a mi proyecto, que es un Ecommerce desarrollado con React y Vite como el bundler, y utilizo Tailwind CSS para el estilizado. Dentro de la navegación cuand hayas seleccionado tus artículos deseados, nuestro sistema de carrito de compras te posibilita a quitar productos, vaciar completamente tu carrito o incluso simular la compra para tener una idea de cómo será todo el proceso.
+Hola, bienvenido/a a mi proyecto, que es un Ecommerce desarrollado con React y Vite como el bundler, y utilizo Tailwind CSS para el estilizado. Dentro de la navegación cuando hayas seleccionado tus artículos deseados, nuestro sistema de carrito de compras te posibilita a quitar productos, vaciar completamente tu carrito o incluso simular la compra para tener una idea de cómo será todo el proceso.
 Detrás de cada producto y orden de compra se encuentra la base de datos Firebase, que almacena no solo los detalles de cada producto, sino también la información esencial del comprador. Una vez que hayas finalizado tu selección y simulado tu compra, recibirás un ID único correspondiente a tu orden generando una experiencia más realista de esta simulación.
 
 **Funcionalidades**
