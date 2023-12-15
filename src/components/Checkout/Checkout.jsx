@@ -1,5 +1,6 @@
 import {useContext, useState} from "react";
 import {CartContext} from "../../context/CartContext";
+import { Link } from "react-router-dom";
 import {Timestamp, getDocs, writeBatch, collection, addDoc, query, where, documentId} from "firebase/firestore";
 import {db} from "../../firebase/client";
 import CheckoutForm from "../CheckoutForm/CheckoutForm";
@@ -80,24 +81,26 @@ const Checkout = () => {
     }
 
     return (
-        <div className="flex flex-col items-center h-screen">
+        <div className="flex flex-col items-center sm:mt-10 lg:mt-30 h-screen">
             {
                 loading && (
-                    <div className="mt-48">
-                        <h2 className="text-2xl text-slate-500 font-semibold animate-pulse">
-                            Generando Orden....
-                        </h2>
-                    </div>
+                    <h2 className="text-2xl text-slate-500 font-semibold animate-pulse">
+                        Generando Orden....
+                    </h2>
                 )
             }
 
             {
                 orderId && (
-                    <div className="flex flex-col items-center justify-center mt-48">
+                    <div
+                        className="flex flex-col items-center justify-center mt-24 bg-slate-200 p-20 rounded-md shadow-md">
                         <h2 className="text-2xl text-black font-semibold">
                             Orden Generada: {orderId}
                         </h2>
-                        <p className="mt-10 text-center text-slate-900 text-lg text-semibold">Gracias por elegirnos 😃!!!</p>
+                        <p className="mt-10 text-center text-slate-900 text-lg text-semibold mb-4">Gracias por elegirnos 😃!!!</p>
+                        <div> 
+                            <Link to="/" className="text-blue-500 underline">Volver a Home</Link>
+                        </div>
                     </div>
                 )
             }

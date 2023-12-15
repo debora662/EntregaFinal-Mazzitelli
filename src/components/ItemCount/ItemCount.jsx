@@ -1,6 +1,7 @@
 import {useState} from "react";
 import PropTypes from 'prop-types';
 
+
 const ItemCount = ({stock, initial, onAdd}) => {
     const [quantity, setQuantity] = useState(initial);
 

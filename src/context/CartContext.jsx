@@ -1,5 +1,6 @@
 import {createContext, useState} from "react";
 import PropTypes from "prop-types";
+import {toast} from "react-toastify";
 
 export const CartContext = createContext({cart: []});
 
@@ -15,10 +16,24 @@ const CartProvider = ({children}) => {
                     subtotal: item.precio * quantity
                 }
             ]);
+
+            toast.success(`¡Producto ${item.nombre} fue agregado al carrito!`, {
+                position: "bottom-right",
+                autoClose: 3000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,                
+                style: {
+                    background: '#FFFFFF',
+                    color: '#000000',
+                    fontWeight: 'bold',                    
+                  },                  
+              });
         } else {
-            console.error("El producto ya fue agregado");
+            console.error("El producto ya fue agregado");            
         }
-    }
+    };
 
     const removeItem = (itemId) => {
         const itemIndex = cart.findIndex((prod) => prod.id === itemId);
@@ -67,7 +82,7 @@ const CartProvider = ({children}) => {
 };
 
 CartProvider.propTypes = {
-    children: PropTypes.node
-};
+    children: PropTypes.node,
+  };
 
 export default CartProvider;
