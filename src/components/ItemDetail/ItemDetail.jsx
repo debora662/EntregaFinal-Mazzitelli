@@ -1,5 +1,7 @@
 import ItemCount from "../ItemCount/ItemCount";
 import PropTypes from 'prop-types';
+import numeral from 'numeral';
+import 'numeral/locales/es';
 import {useContext, useState} from "react";
 import {Link} from "react-router-dom";
 import {CartContext} from "../../context/CartContext";
@@ -34,7 +36,7 @@ const ItemDetail = ({nombre,id,precio,stock,image,descripcion}) => {
                 </picture>
                 <section className="p-8 md:w-3/4">
                     <h2 className="uppercase tracking-wide text-xl text-black font-semibold">{nombre}</h2>
-                    <p className="mt-2 text-black text-lg font-semibold">${precio}</p>
+                    <p className="mt-2 text-black text-lg font-semibold">{numeral(precio).format('$0,0')}</p>
                     <p className="mt-2 text-black font-semibold">
                         Stock Disponible: {stock}</p>
                     <p className="mt-2 text-gray-600">{descripcion}</p>

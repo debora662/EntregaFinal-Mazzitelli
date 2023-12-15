@@ -1,5 +1,7 @@
 import {Link} from "react-router-dom";
 import PropTypes from 'prop-types';
+import numeral from 'numeral';
+import 'numeral/locales/es';
 import { useState } from "react";
 
 const Item = ({id, nombre, precio, image}) => {
@@ -29,7 +31,7 @@ const Item = ({id, nombre, precio, image}) => {
             </picture>
             <section>
                 <p className="font-bold text-slate-700 text-base my-4">
-                    Precio: ${precio}
+                    Precio:{numeral(precio).format('$0,0')}
                 </p>
             </section>
             <footer>

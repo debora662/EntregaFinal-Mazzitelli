@@ -1,4 +1,6 @@
 import PropTypes from 'prop-types';
+import numeral from 'numeral';
+import 'numeral/locales/es';
 import {useContext} from 'react';
 import {CartContext} from '../../context/CartContext';
 
@@ -21,7 +23,7 @@ const CartItem = ({id, image, nombre, quantity, subtotal}) => {
                     <p className="text-md text-slate-950 sm:text-sm md:text-base">{nombre}</p>
                 </div>
                 <div className="col-span-1 sm:text-center">
-                    <p className="text-slate-950 ml-8 sm:text-sm md:text-base">Subtotal: ${subtotal}</p>
+                    <p className="text-slate-950 ml-8 sm:text-sm md:text-base">Subtotal: {numeral(subtotal).format('$0,0')}</p>
                 </div>
                 <div className="col-span-1">
                     <p className="text-slate-950 sm:ml-8 text-sm md:text-base">Cantidad: {quantity}</p>

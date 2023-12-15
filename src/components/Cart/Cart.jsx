@@ -1,6 +1,8 @@
 import {useContext} from "react";
 import {CartContext} from "../../context/CartContext";
 import {Link} from "react-router-dom";
+import numeral from 'numeral';
+import 'numeral/locales/es';
 import CartItem from "../CartItem/CartItem";
 
 const Cart = () => {
@@ -21,7 +23,7 @@ const Cart = () => {
         <div className="my-40">
             {cart.map((p) => <CartItem key={p.id} {...p} subtotal={p.subtotal}/>)}
             <div className="flex justify-end mt-3 sm:mr-2 md:mr-16 lg:mr-14 xl:mr-36">
-                <h3 className="text-black font-bold text-2xl">Total: ${total}</h3>
+                <h3 className="text-black font-bold text-2xl">Total: {numeral(total).format('$0,0')}</h3>
             </div>
             <div
                 className="flex flex-row justify-start sm:ml-1 md:ml-14 lg:ml-18 xl:ml-36 mt-16">
