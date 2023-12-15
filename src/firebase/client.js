@@ -8,7 +8,7 @@ const firebaseConfig = {
     storageBucket: "agatha-ecommerce.appspot.com",
     messagingSenderId: "801781335588",
     appId: "1:801781335588:web:1cc9d83bf3d6f16fe83ab1"
-  };
+};
 
 const app = initializeApp(firebaseConfig);
 export const db = getFirestore(app);

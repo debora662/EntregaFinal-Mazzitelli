@@ -112,7 +112,7 @@ const CheckoutForm = ({onConfirm}) => {
                     ? ""
                     : "opacity-50 cursor-not-allowed"}`}
                 disabled={!isButtonEnabled}>
-                Confirmar Compra
+                Realizar Compra
             </button>
         </form>
     );

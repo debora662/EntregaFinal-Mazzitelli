@@ -80,12 +80,14 @@ const Checkout = () => {
     }
 
     return (
-        <div className="flex flex-col items-center sm:mt-10 lg:mt-30 h-screen">
+        <div className="flex flex-col items-center h-screen">
             {
                 loading && (
-                    <h2 className="text-2xl text-slate-500 font-semibold animate-pulse">
-                        Generando Orden....
-                    </h2>
+                    <div className="mt-48">
+                        <h2 className="text-2xl text-slate-500 font-semibold animate-pulse">
+                            Generando Orden....
+                        </h2>
+                    </div>
                 )
             }
 
@@ -104,8 +106,8 @@ const Checkout = () => {
                     <div className="flex flex-col items-center justify-center mt-">
                         <h1 className="text-center mt-10 text-2xl text-black font-semibold">
                             Complete sus Datos
-                        </h1>                        
-                        <CheckoutForm onConfirm={createOrder}/>                        
+                        </h1>
+                        <CheckoutForm onConfirm={createOrder}/>
                     </div>
                 )
             }

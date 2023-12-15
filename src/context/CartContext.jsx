@@ -67,7 +67,7 @@ const CartProvider = ({children}) => {
 };
 
 CartProvider.propTypes = {
-    children: PropTypes.node,
-  };
+    children: PropTypes.node
+};
 
 export default CartProvider;

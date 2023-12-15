@@ -41,7 +41,10 @@ const ItemDetailContainer = () => {
     return (
         <div>
             {isLoading && <Loading/>}
-            {error && <p className="border-b-2 p-4 bg-slate-200 mx-36 h-52 rounded-md shadow-md my-40 flex justify-center items-center text-slate-700">{error}</p>}
+            {
+                error && <p
+                        className="border-b-2 p-4 bg-slate-200 mx-36 h-52 rounded-md shadow-md my-40 flex justify-center items-center text-slate-700">{error}</p>
+            }
             {product && <ItemDetail {...product}/>}
         </div>
     )

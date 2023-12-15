@@ -12,7 +12,8 @@ const CartItem = ({id, image, nombre, quantity, subtotal}) => {
     return (
         <div
             className="grid grid-cols-5 items-center justify-between p-4 bg-slate-200 sm:mx-1 md:mx-14 xl:mx-36 h-46 shadow-md">
-            <div className="grid grid-cols-5 col-span-full items-center lg:place-items-center">
+            <div
+                className="grid grid-cols-5 col-span-full items-center lg:place-items-center">
                 <div className="col-span-1">
                     <img src={image} className="rounded-md w-24" alt={nombre}/>
                 </div>
@@ -30,7 +31,7 @@ const CartItem = ({id, image, nombre, quantity, subtotal}) => {
                         onClick={removeProduct}
                         className="bg-red-600 px-1.5 rounded text-white hover:text-black ml-14">X</button>
                 </div>
-            </div>          
+            </div>
         </div>
     );
 };

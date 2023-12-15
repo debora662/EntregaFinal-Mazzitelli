@@ -3,11 +3,11 @@ import PropTypes from 'prop-types';
 import { useState } from "react";
 
 const Item = ({id, nombre, precio, image}) => {
-   const [imageLoaded, setImageLoaded] = useState(false);
+    const [imageLoaded, setImageLoaded] = useState(false);
 
-   const handleImageLoad = () => {
-    setImageLoaded(true);
-   }
+    const handleImageLoad = () => {
+        setImageLoaded(true);
+    }
 
     return (
         <article
@@ -18,15 +18,14 @@ const Item = ({id, nombre, precio, image}) => {
                 </h2>
             </header>
             <picture>
-                {!imageLoaded && (
-                    <div className="skeleton w-40 h-[11.5rem]"></div>
-                )}
+                {!imageLoaded && (<div className="skeleton w-40 h-[11.5rem]"></div>)}
                 <img
                     src={image}
-                    className={`w-40 object-cover ${imageLoaded ? 'opacity-100' : 'opacity-0'}`}
+                    className={`w-40 object-cover ${imageLoaded
+                        ? 'opacity-100'
+                        : 'opacity-0'}`}
                     alt={nombre}
-                    onLoad={handleImageLoad}
-                />
+                    onLoad={handleImageLoad}/>
             </picture>
             <section>
                 <p className="font-bold text-slate-700 text-base my-4">

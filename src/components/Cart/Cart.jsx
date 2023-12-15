@@ -23,9 +23,14 @@ const Cart = () => {
             <div className="flex justify-end mt-3 sm:mr-2 md:mr-16 lg:mr-14 xl:mr-36">
                 <h3 className="text-black font-bold text-2xl">Total: ${total}</h3>
             </div>
-            <div className="flex flex-row justify-start sm:ml-1 md:ml-14 lg:ml-18 xl:ml-36 mt-16">
-                <button onClick={() => clearCart()} className="bg-blue-600 rounded p-1.5 hover:bg-blue-800 text-white mr-10">Limpiar Carrito</button>
-                <Link to="/checkout" className="bg-blue-600 rounded p-1.5 hover:bg-blue-800 text-white">Checkout</Link>
+            <div
+                className="flex flex-row justify-start sm:ml-1 md:ml-14 lg:ml-18 xl:ml-36 mt-16">
+                <button
+                    onClick={() => clearCart()}
+                    className="bg-blue-600 rounded p-1.5 hover:bg-blue-800 text-white mr-10">Limpiar Carrito</button>
+                <Link
+                    to="/checkout"
+                    className="bg-blue-600 rounded p-1.5 hover:bg-blue-800 text-white">Checkout</Link>
             </div>
         </div>
     )
