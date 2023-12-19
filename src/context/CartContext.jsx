@@ -17,17 +17,17 @@ const CartProvider = ({children}) => {
                 }
             ]);
 
-            toast.success(`¡Producto ${item.nombre} fue agregado al carrito!`, {
+            toast.info(`¡Producto ${item.nombre} fue agregado al carrito!`, {
                 position: "bottom-right",
                 autoClose: 3000,
                 hideProgressBar: false,
                 closeOnClick: true,
                 pauseOnHover: true,
-                draggable: true,                
-                style: {
-                    background: '#FFFFFF',
-                    color: '#000000',
-                    fontWeight: 'bold',                    
+                draggable: true,  
+                icon: '😁',  
+                theme: 'light',            
+                style: {                    
+                    fontWeight: 'bold',                                     
                   },                  
               });
         } else {

@@ -1,11 +1,16 @@
+import { Link } from "react-router-dom";
+
 const Footer = () => {
+    const scrollToTop = () => {
+        window.scrollTo(0, 0);
+    }
     return (
         <footer className="footer p-10 bg-base-300 text-base-content">
             <div>
-                <div className="footer-title">Productos</div>
-                <a className="link link-hover">Auriculares</a>
-                <a className="link link-hover">Mouse</a>
-                <a className="link link-hover">Teclado</a>
+                <div className="footer-title" >Productos</div>
+                <Link to="/category/auriculares" onClick={scrollToTop}>Auriculares</Link>
+                <Link to="/category/mouse" onClick={scrollToTop}>Mouse</Link>
+                <Link to="/category/teclado" onClick={{scrollToTop}}>Teclado</Link>
             </div>
             <div>
                 <div className="footer-title">Compania</div>
