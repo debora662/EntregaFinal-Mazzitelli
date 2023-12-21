@@ -1,11 +1,16 @@
-import {createContext, useState} from "react";
+import {createContext, useState, useEffect} from "react";
 import PropTypes from "prop-types";
 import {toast} from "react-toastify";
 
 export const CartContext = createContext({cart: []});
 
 const CartProvider = ({children}) => {
-    const [cart, setCart] = useState([]);
+    const initialCart = JSON.parse(localStorage.getItem("cart")) || [];
+    const [cart, setCart] = useState(initialCart);
+
+    useEffect(() => {
+        localStorage.setItem("cart", JSON.stringify(cart));
+      }, [cart]);
 
     const addItem = (item, quantity) => {
         if (!isInCart(item.id)) {

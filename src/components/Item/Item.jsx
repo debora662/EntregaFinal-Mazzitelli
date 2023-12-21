@@ -13,7 +13,7 @@ const Item = ({id, nombre, precio, image}) => {
 
     return (
         <article
-            className="w-full sm:max-w-md md:max-w-lg lg:max-w-xl xl:max-w-2xl bg-slate-50 rounded overflow-hidden shadow-lg hover:shadow-gray-500 flex flex-col items-center mx-auto">
+            className="w-full sm:max-w-md md:max-w-lg lg:max-w-xl xl:max-w-2xl bg-slate-200 rounded-lg overflow-hidden shadow-lg hover:shadow-gray-500 flex flex-col items-center mx-auto">
             <header>
                 <h2 className="font-bold text-slate-700 text-base my-2">
                     {nombre}

@@ -26,7 +26,7 @@ const ItemDetail = ({nombre,id,precio,stock,image,descripcion}) => {
 
     return (
         <div
-            className="max-w-full md:max-w-4xl mx-auto bg-slate-50 rounded-xl overflow-hidden shadow-md mt-20 mb-40">
+            className="max-w-full md:max-w-4xl mx-auto bg-slate-200 rounded-xl overflow-hidden shadow-md mt-20 mb-40">
             <header className="md:flex my-10">
                 <picture className="md:flex-shrink-0">
                     <img
