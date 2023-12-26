@@ -7,6 +7,7 @@ import Error404 from "../components/Error/Error404";
 import CartProvider from "../context/CartContext";
 import Cart from "../components/Cart/Cart";
 import Checkout from "../components/Checkout/Checkout";
+import Login from "../components/Auth/LogIn";
 
 function RouterPrincipal() {
     return (
@@ -17,6 +18,7 @@ function RouterPrincipal() {
                     <Route path="/" element={<ItemListContainer greeting = 'Bienvenidos' />}/>
                     <Route path="/category/:categoryId" element={<ItemListContainer />}/>
                     <Route path="/item/:itemId" element={<ItemDetailContainer />}/>
+                    <Route path="/login" element={< Login/>}></Route>
                     <Route path="/cart" element={<Cart />}/>
                     <Route path="/checkout" element={<Checkout />}/>
                     <Route path="*" element={<Error404 />}/>

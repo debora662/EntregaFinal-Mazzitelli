@@ -31,7 +31,7 @@ const Item = ({id, nombre, precio, image}) => {
             </picture>
             <section>
                 <p className="font-bold text-slate-700 text-base my-4">
-                    Precio:{numeral(precio).format('$0,0')}
+                    Precio: {numeral(precio).format('$0,0')}
                 </p>
             </section>
             <footer>

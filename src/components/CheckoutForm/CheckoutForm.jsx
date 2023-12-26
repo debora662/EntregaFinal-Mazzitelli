@@ -59,6 +59,7 @@ const CheckoutForm = ({onConfirm}) => {
                 <input
                     type="text"
                     id="name"
+                    placeholder="Nombre..."
                     name="name"
                     value={dataUser.name}
                     onChange={handleChangeInput}
@@ -70,6 +71,7 @@ const CheckoutForm = ({onConfirm}) => {
                 <input
                     type="tel"
                     id="phone"
+                    placeholder="Teléfono..."
                     name="phone"
                     value={dataUser.phone}
                     onChange={handleChangeInput}
@@ -81,6 +83,7 @@ const CheckoutForm = ({onConfirm}) => {
                 <input
                     type="email"
                     id="email"
+                    placeholder="Correo electrónico..."
                     name="email"
                     value={dataUser.email}
                     onChange={handleChangeInput}
@@ -96,6 +99,7 @@ const CheckoutForm = ({onConfirm}) => {
                 <input
                     type="email"
                     id="confirmEmail"
+                    placeholder="Confirmar correo electrónico..."
                     name="confirmEmail"
                     value={confirmEmail}
                     onChange={handleChangeConfirmEmail}

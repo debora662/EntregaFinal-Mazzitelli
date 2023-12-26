@@ -1,3 +1,4 @@
+import login from "../../assets/login.png"
 import CartWidget from "../CartWidget/CartWidget";
 import {NavLink, Link} from "react-router-dom";
 
@@ -71,6 +72,20 @@ const NavBar = () => {
                         </ul>
                     </div>
                     <div className="navbar-end">
+                    <div className="dropdown dropdown-end">
+      <div tabIndex={0}>
+        <button>
+          <img src={login} className="h-8 w-8 mr-4 mt-1.5" alt="icono login" />
+        </button>
+      </div>
+      <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 rounded-b-lg shadow bg-base-100 w-52">        
+        <li>
+            <Link to="/login">Login</Link>
+            </li>
+        <li><a>Logout</a></li>
+      </ul>
+    </div>
+                        
                         <CartWidget/>
                     </div>
                 </div>

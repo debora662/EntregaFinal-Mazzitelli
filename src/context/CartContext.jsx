@@ -10,7 +10,7 @@ const CartProvider = ({children}) => {
 
     useEffect(() => {
         localStorage.setItem("cart", JSON.stringify(cart));
-      }, [cart]);
+    }, [cart]);
 
     const addItem = (item, quantity) => {
         if (!isInCart(item.id)) {
@@ -28,15 +28,15 @@ const CartProvider = ({children}) => {
                 hideProgressBar: false,
                 closeOnClick: true,
                 pauseOnHover: true,
-                draggable: true,  
-                icon: '😁',  
-                theme: 'light',            
-                style: {                    
-                    fontWeight: 'bold',                                     
-                  },                  
-              });
+                draggable: true,
+                icon: '😁',
+                theme: 'light',
+                style: {
+                    fontWeight: 'bold'
+                }
+            });
         } else {
-            console.error("El producto ya fue agregado");            
+            console.error("El producto ya fue agregado");
         }
     };
 
@@ -87,7 +87,7 @@ const CartProvider = ({children}) => {
 };
 
 CartProvider.propTypes = {
-    children: PropTypes.node,
-  };
+    children: PropTypes.node
+};
 
 export default CartProvider;
