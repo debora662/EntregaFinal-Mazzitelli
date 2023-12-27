@@ -1,14 +1,16 @@
-import {auth} from '../../firebase/client';
-import { signInWithEmailAndPassword } from 'firebase/auth';
+import { createUserWithEmailAndPassword } from 'firebase/auth';
+import {auth} from "../../firebase/client";
 import { useState } from "react";
 
-const Auth = () => {
+
+const SingUp = () => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
 
-    const handleLogin = async () => {
+    const handleSingUp = async () => {
         try {
-        await signInWithEmailAndPassword(auth, email, password);
+        await createUserWithEmailAndPassword(auth, email, password);
+        console.log("Usuario registrado exitosamente");
         } catch (error) {
           console.error("Error al iniciar sesión", error.message)              
         }
@@ -16,8 +18,8 @@ const Auth = () => {
   return (
     <div className="flex items-center justify-center my-32">
             <div className="bg-gray-50 p-8 shadow-md rounded-md w-96">
-                <h2 className="text-2xl font-semibold mb-4">Iniciar Sesión</h2>
-                <form>
+                <h2 className="text-2xl font-semibold mb-4">Crear Cuenta</h2>
+                <form onSubmit={handleSingUp}>
                     <div className="mb-4">
                         <label className="block text-gray-600 text-sm font-medium mb-2" htmlFor="email">
                             Correo electrónico:
@@ -46,10 +48,9 @@ const Auth = () => {
                     </div>                  
                     <button
                         className="w-full bg-blue-500 text-white py-2 rounded-md hover:bg-blue-600 focus:outline-none focus:ring focus:border-blue-300"
-                        type="button"
-                        onClick={handleLogin}
+                        type="submit"                        
                     >
-                        Iniciar Sesión
+                        Crear Cuenta
                     </button>
                 </form>
             </div>
@@ -57,4 +58,4 @@ const Auth = () => {
   )
 }
 
-export default Auth;
+export default SingUp;

@@ -80,9 +80,11 @@ const NavBar = () => {
       </div>
       <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 rounded-b-lg shadow bg-base-100 w-52">        
         <li>
-            <Link to="/login">Login</Link>
+            <Link to="/singin">Sing In</Link>
             </li>
-        <li><a>Logout</a></li>
+        <li>
+            <Link to="/singup">Sing Up</Link>
+            </li>
       </ul>
     </div>
                         
