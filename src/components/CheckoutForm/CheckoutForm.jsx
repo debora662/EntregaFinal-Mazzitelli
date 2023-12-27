@@ -62,6 +62,7 @@ const CheckoutForm = ({onConfirm}) => {
                     placeholder="Nombre..."
                     name="name"
                     value={dataUser.name}
+                    autoComplete="name"
                     onChange={handleChangeInput}
                     className="border-2 rounded-md w-full py-2 px-3 focus:outline-none bg-gray-200 focus:border-blue-500 text-gray-600"/>
                 <p className="text-red-500 text-sm">{formErrors.name}</p>
@@ -74,6 +75,7 @@ const CheckoutForm = ({onConfirm}) => {
                     placeholder="Teléfono..."
                     name="phone"
                     value={dataUser.phone}
+                    autoComplete="phone"
                     onChange={handleChangeInput}
                     className="border-2 rounded-md w-full py-2 px-3 focus:outline-none bg-gray-200 focus:border-blue-500 text-gray-600"/>
                 <p className="text-red-500 text-sm">{formErrors.phone}</p>
@@ -86,6 +88,7 @@ const CheckoutForm = ({onConfirm}) => {
                     placeholder="Correo electrónico..."
                     name="email"
                     value={dataUser.email}
+                    autoComplete="email"
                     onChange={handleChangeInput}
                     className="border-2 rounded-md w-full py-2 px-3 focus:outline-none bg-gray-200 focus:border-blue-500 text-gray-600"/>
                 <p className="text-red-500 text-sm">{formErrors.email}</p>
@@ -102,6 +105,7 @@ const CheckoutForm = ({onConfirm}) => {
                     placeholder="Confirmar correo electrónico..."
                     name="confirmEmail"
                     value={confirmEmail}
+                    autoComplete="confirmEmail"
                     onChange={handleChangeConfirmEmail}
                     className="border-2 rounded-md w-full py-2 px-3 focus:outline-none bg-gray-200 focus:border-blue-500 text-gray-600"/> {
                     formErrors.confirmEmail && (

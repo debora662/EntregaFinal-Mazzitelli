@@ -1,7 +1,4 @@
 import {Route, Routes, BrowserRouter as Router} from "react-router-dom";
-import { useEffect } from "react";
-import { onAuthStateChanged } from "firebase/auth";
-import { auth } from "../firebase/client";
 import NavBar from "../components/NavBar/NavBar";
 import ItemListContainer from "../components/ItemListContainer/ItemListContainer";
 import ItemDetailContainer from "../components/ItemDetailContainer/ItemDetailContainer";
@@ -10,19 +7,16 @@ import Error404 from "../components/Error/Error404";
 import CartProvider from "../context/CartContext";
 import Cart from "../components/Cart/Cart";
 import Checkout from "../components/Checkout/Checkout";
+import AuthDetails from "../components/Auth/AuthDetails";
 import SingIn from "../components/Auth/SingIn";
 import SingUp from "../components/Auth/SingUp";
 
 const RouterPrincipal = () => {
-    useEffect(() => {
-        const unsubscribe = onAuthStateChanged(auth, () => {});
-        return() => unsubscribe();
-    }, []);
-
     return (
         <Router>
             <CartProvider >
                 <NavBar/>
+                <AuthDetails/>
                 <Routes>
                     <Route path="/" element={<ItemListContainer greeting = 'Bienvenidos' />}/>
                     <Route path="/category/:categoryId" element={<ItemListContainer />}/>

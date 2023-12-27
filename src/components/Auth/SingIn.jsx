@@ -7,13 +7,16 @@ const SingIn = () => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
 
-    const handleSingIn = async () => {
+    const handleSingIn = async (e) => {
+        e.preventDefault();      
+        
         try {
-        await signInWithEmailAndPassword(auth, email, password);
+            await signInWithEmailAndPassword(auth, email, password)
         } catch (error) {
-          console.error("Error al iniciar sesión", error.message)              
+            console.error(error);
         }
-    }
+    };
+
   return (
     <div className="flex items-center justify-center my-32">
             <div className="bg-gray-50 p-8 shadow-md rounded-md w-96">
@@ -29,6 +32,7 @@ const SingIn = () => {
                             id="email"
                             placeholder="Correo electrónico"
                             value={email}
+                            autoComplete='email'
                             onChange={(e) => setEmail(e.target.value)}
                         />
                     </div>
@@ -42,6 +46,7 @@ const SingIn = () => {
                             id="password"
                             placeholder="Contraseña"
                             value={password}
+                            autoComplete='contraseña'
                             onChange={(e) => setPassword(e.target.value)}
                         />
                     </div>                  
