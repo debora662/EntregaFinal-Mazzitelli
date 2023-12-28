@@ -1,32 +1,31 @@
-import {useEffect, useState} from "react";
 import {onAuthStateChanged} from "firebase/auth";
 import {auth} from "../../firebase/client";
+import { useState, useEffect } from "react";
 
-const AuthDetails = () => {
+const AuthDetails = () => {  
     const [authUser, setAuthUser] = useState(null);
 
     useEffect(() => {
-        const unsubscribe = onAuthStateChanged(auth, (user) => {
+        const unsubscribe = onAuthStateChanged(auth, (user) => {            
             if (user) {
                 setAuthUser(user)
             } else {
                 setAuthUser(null)
             }
         });
-        return() => unsubscribe();
+        return unsubscribe;
     }, []);
+         
 
     return (
         <div>
             {
-                authUser
-                    ? (                        
-                        <p>Hola, {authUser.email}!!!</p>
+                authUser ? (                        
+                        <p className="text-red-500">Hola, {authUser.email}</p>
                     )
                     : (                        
-                        <p>No hay un usuario autenticado.</p>
-                    )
-            }
+                        <p className="text-blue-800">Usuario no registrado!!!</p>
+                    )}
         </div>
     );
 }

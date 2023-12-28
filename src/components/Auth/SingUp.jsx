@@ -1,6 +1,6 @@
-import { createUserWithEmailAndPassword } from 'firebase/auth';
+import {createUserWithEmailAndPassword} from 'firebase/auth';
 import {auth} from "../../firebase/client";
-import { useState } from "react";
+import {useState} from "react";
 
 const SingUp = () => {
     const [email, setEmail] = useState("");
@@ -31,8 +31,8 @@ const SingUp = () => {
                             id="email"
                             name="email"
                             placeholder="Correo electrónico..."
-                            value={email}  
-                            autoComplete='email'                          
+                            value={email}
+                            autoComplete='email'
                             onChange={(e) => setEmail(e.target.value)}/>
                     </div>
                     <div className="mb-4">

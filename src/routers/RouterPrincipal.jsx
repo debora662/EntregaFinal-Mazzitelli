@@ -7,16 +7,15 @@ import Error404 from "../components/Error/Error404";
 import CartProvider from "../context/CartContext";
 import Cart from "../components/Cart/Cart";
 import Checkout from "../components/Checkout/Checkout";
-import AuthDetails from "../components/Auth/AuthDetails";
 import SingIn from "../components/Auth/SingIn";
 import SingUp from "../components/Auth/SingUp";
 
-const RouterPrincipal = () => {
+const RouterPrincipal = () => {  
+
     return (
         <Router>
             <CartProvider >
-                <NavBar/>
-                <AuthDetails/>
+                <NavBar/>                             
                 <Routes>
                     <Route path="/" element={<ItemListContainer greeting = 'Bienvenidos' />}/>
                     <Route path="/category/:categoryId" element={<ItemListContainer />}/>
@@ -26,7 +25,7 @@ const RouterPrincipal = () => {
                     <Route path="/cart" element={<Cart />}/>
                     <Route path="/checkout" element={<Checkout />}/>
                     <Route path="*" element={<Error404 />}/>
-                </Routes>
+                </Routes>              
                 <Footer/>
             </CartProvider >
         </Router>

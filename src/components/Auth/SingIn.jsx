@@ -1,6 +1,8 @@
+
 import { signInWithEmailAndPassword } from 'firebase/auth';
 import {auth} from "../../firebase/client";
 import { useState } from "react";
+import AuthDetails from "./AuthDetails";
 
 
 const SingIn = () => {
@@ -8,8 +10,8 @@ const SingIn = () => {
     const [password, setPassword] = useState("");
 
     const handleSingIn = async (e) => {
-        e.preventDefault();      
-        
+        e.preventDefault();
+
         try {
             await signInWithEmailAndPassword(auth, email, password)
         } catch (error) {
@@ -18,6 +20,8 @@ const SingIn = () => {
     };
 
   return (
+    <div>
+        <AuthDetails/>
     <div className="flex items-center justify-center my-32">
             <div className="bg-gray-50 p-8 shadow-md rounded-md w-96">
                 <h2 className="text-2xl font-semibold mb-4">Iniciar Sesión</h2>
@@ -58,6 +62,7 @@ const SingIn = () => {
                     </button>
                 </form>
             </div>
+        </div>
         </div>
   )
 }
