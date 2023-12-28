@@ -1,8 +1,10 @@
 import {createContext, useState, useEffect} from "react";
 import PropTypes from "prop-types";
 import {toast} from "react-toastify";
+import { onAuthStateChanged } from "firebase/auth";
+import {auth} from "../firebase/client";
 
-export const CartContext = createContext({cart: []});
+export const CartContext = createContext({cart: [], authUser: null });
 
 const CartProvider = ({children}) => {
     const initialCart = JSON.parse(localStorage.getItem("cart")) || [];
@@ -71,6 +73,15 @@ const CartProvider = ({children}) => {
         return cart.reduce((totalQuantity, item) => totalQuantity + item.quantity, 0);
     }
 
+    const [authUser, setAuthUser] = useState(null);
+
+    useEffect(() => {
+        const unsubscribe = onAuthStateChanged(auth, (user) => {
+            setAuthUser(user);
+        });
+        return unsubscribe
+    }, []);
+
     return (
         <CartContext.Provider
             value={{
@@ -79,7 +90,8 @@ const CartProvider = ({children}) => {
                 removeItem,
                 clearCart,
                 total: getTotal(),
-                totalQuantity: getTotalQuantity()
+                totalQuantity: getTotalQuantity(),
+                authUser,
             }}>
             {children}
         </CartContext.Provider>
