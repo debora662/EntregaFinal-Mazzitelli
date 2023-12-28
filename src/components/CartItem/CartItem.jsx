@@ -1,11 +1,16 @@
 import PropTypes from 'prop-types';
 import numeral from 'numeral';
 import 'numeral/locales/es';
-import {useContext} from 'react';
+import {useContext, useState} from 'react';
 import {CartContext} from '../../context/CartContext';
 
 const CartItem = ({id, image, nombre, quantity, subtotal}) => {
-    const {removeItem} = useContext(CartContext)
+    const {removeItem} = useContext(CartContext);
+    const [imageLoaded, setImageLoaded] = useState(false);
+
+    const handleImageLoad = () => {
+        setImageLoaded(true);
+    }
 
     const removeProduct = () => {
         removeItem(id)
@@ -17,7 +22,13 @@ const CartItem = ({id, image, nombre, quantity, subtotal}) => {
             <div
                 className="grid grid-cols-5 col-span-full items-center lg:place-items-center">
                 <div className="col-span-1">
-                    <img src={image} className="rounded-md w-24" alt={nombre}/>
+                {!imageLoaded && <div className="skeleton w-24 h-24 rounded-md"></div>}
+                <img
+                    src={image}
+                    className={`rounded-md w-24 ${imageLoaded ? '' : 'hidden'}`}
+                    alt={nombre}
+                    onLoad={handleImageLoad}
+                />
                 </div>
                 <div className="col-span-1 sm:text-center">
                     <p className="text-md text-slate-950 sm:text-sm md:text-base">{nombre}</p>

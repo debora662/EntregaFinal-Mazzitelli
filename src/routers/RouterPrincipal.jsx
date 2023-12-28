@@ -10,24 +10,24 @@ import Checkout from "../components/Checkout/Checkout";
 import SingIn from "../components/Auth/SingIn";
 import SingUp from "../components/Auth/SingUp";
 
-const RouterPrincipal = () => {  
+const RouterPrincipal = () => {
 
     return (
-        <Router>
-            <CartProvider >
-                <NavBar/>                             
-                <Routes>
-                    <Route path="/" element={<ItemListContainer greeting = 'Bienvenidos' />}/>
-                    <Route path="/category/:categoryId" element={<ItemListContainer />}/>
-                    <Route path="/item/:itemId" element={<ItemDetailContainer />}/>
-                    <Route path="/singin" element={<SingIn />}/>
-                    <Route path="/singup" element={<SingUp />}/>
-                    <Route path="/cart" element={<Cart />}/>
-                    <Route path="/checkout" element={<Checkout />}/>
-                    <Route path="*" element={<Error404 />}/>
-                </Routes>              
-                <Footer/>
-            </CartProvider >
+        <Router>            
+                <CartProvider >
+                    <NavBar/>
+                    <Routes>
+                        <Route path="/" element={<ItemListContainer greeting = 'Bienvenidos' />}/>
+                        <Route path="/category/:categoryId" element={<ItemListContainer />}/>
+                        <Route path="/item/:itemId" element={<ItemDetailContainer />}/>
+                        <Route path="/singin" element={<SingIn />}/>
+                        <Route path="/singup" element={<SingUp />}/>
+                        <Route path="/cart" element={<Cart />}/>
+                        <Route path="/checkout" element={<Checkout />}/>
+                        <Route path="*" element={<Error404 />}/>
+                    </Routes>
+                    <Footer/>
+                </CartProvider >          
         </Router>
     )
 }
