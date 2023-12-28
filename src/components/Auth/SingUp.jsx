@@ -1,7 +1,7 @@
 import {createUserWithEmailAndPassword} from 'firebase/auth';
 import {auth} from "../../firebase/client";
 import {useState} from "react";
-import { Link } from 'react-router-dom';
+import {Link} from 'react-router-dom';
 
 const SingUp = () => {
     const [email, setEmail] = useState("");
@@ -29,7 +29,8 @@ const SingUp = () => {
                         ? (
                             <div>
                                 <p className="text-green-500 text-center p-10 font-semibold">Cuenta creada exitosamente. ¡Bienvenido!</p>
-                                <p className='text-sm text-center'>¡Gracias por registrarte! Ir a...<Link to="/" className='text-gray-500 ml-1 font-semibold'>Home</Link> </p>
+                                <p className='text-sm text-center'>¡Gracias por registrarte! Ir a...<Link to="/" className='text-gray-500 ml-1 font-semibold'>Home</Link>
+                                </p>
                             </div>
                         )
                         : (
