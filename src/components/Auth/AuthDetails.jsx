@@ -30,10 +30,7 @@ const AuthDetails = () => {
                             </button>
                         </div>
                     </div>
-                )
-                /* : (
-                        <p className="text-blue-800">Usuario no registrado</p>
-                    ) */
+                )                
             }
         </div>
     );
